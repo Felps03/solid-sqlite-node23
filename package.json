@@ -1,0 +1,22 @@
+{
+  "name": "solid-sqlite-node23",
+  "version": "1.0.0",
+  "description": "Exemplo de API REST com Node.js 23, SQLite nativo e princípios SOLID",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "node --test"
+  },
+  "keywords": [],
+  "engines": {
+    "node": ">=23.0.0"
+  },
+  "author": "Felipe Santos",
+  "type": "module",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "winston": "^3.17.0"
+  }
+}
