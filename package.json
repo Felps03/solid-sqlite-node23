@@ -1,13 +1,25 @@
 {
   "name": "solid-sqlite-node23",
   "version": "1.0.0",
-  "description": "Exemplo de API REST com Node.js 23, SQLite nativo e princípios SOLID",
+  "description": "PoC de API REST de usuários (CRUD) com Node.js 23, SQLite nativo (DatabaseSync) e arquitetura modular baseada em princípios SOLID",
   "main": "src/app.js",
   "scripts": {
     "start": "node src/app.js",
     "test": "node --test"
   },
-  "keywords": [],
+  "keywords": [
+    "node23",
+    "nodejs",
+    "sqlite",
+    "node-sqlite",
+    "database-sync",
+    "express",
+    "rest-api",
+    "solid",
+    "crud",
+    "winston",
+    "poc"
+  ],
   "engines": {
     "node": ">=23.0.0"
   },
