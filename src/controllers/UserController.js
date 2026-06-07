@@ -40,6 +40,7 @@ export class UserController {
       const { id } = req.params;
       const validUser = validateUserInput(req.body);
       const updatedUser = this.userRepository.update(id, validUser);
+      if (!updatedUser) return res.status(404).json({ error: 'User not found.' });
       res.json(updatedUser);
     } catch (error) {
       next(error);

@@ -1,4 +1,5 @@
 import express from 'express';
+import { fileURLToPath } from 'node:url';
 import { createDependencies } from './dependencyInjection.js';
 import { userRoutes } from './routes/userRoutes.js';
 import errorHandler from './middlewares/errorHandler.js';
@@ -12,12 +13,16 @@ export const startServer = async (port = process.env.PORT || 3000) => {
   app.use('/users', userRoutes(userController));
   app.use(errorHandler);
 
-  const server = app.listen(port, () => {
-    console.log(`Servidor rodando na porta ${port}`);
+  return new Promise((resolve, reject) => {
+    const server = app.listen(port, () => {
+      console.log(`Servidor rodando na porta ${port}`);
+      resolve(server);
+    });
+    server.once('error', reject);
   });
-
- 
-  return server;
 };
 
-startServer();
+const isMainModule = process.argv[1] === fileURLToPath(import.meta.url);
+if (isMainModule) {
+  startServer();
+}

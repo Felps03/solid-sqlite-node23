@@ -23,7 +23,10 @@ export class UserRepository {
   update(id, user) {
     const stmt = this.db.prepare('UPDATE users SET name = ?, email = ? WHERE id = ?');
     stmt.run(user.name, user.email, id);
-    return { id, ...user };
+    // Check how many rows were affected.
+    const row = this.db.prepare('SELECT changes() AS count').get();
+    if (row.count === 0) return null;
+    return this.getById(id);
   }
 
   delete(id) {

@@ -2,10 +2,14 @@ export const validateUserInput = (user) => {
     let { name, email } = user;
   
     if (typeof name !== 'string' || name.trim() === '') {
-      throw new Error('Nome inválido.');
+      const error = new Error('Nome inválido.');
+      error.status = 400;
+      throw error;
     }
     if (typeof email !== 'string' || !/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
-      throw new Error('Email inválido.');
+      const error = new Error('Email inválido.');
+      error.status = 400;
+      throw error;
     }
   
     return {
